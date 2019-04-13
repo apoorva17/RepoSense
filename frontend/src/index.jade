@@ -230,17 +230,6 @@ html
                         v-on:change="selectFileType(fileType)")
                     span(v-bind:title="getFileTypeBlankLineInfo(fileType)") {{ fileType }}: {{ getFileTypeExistingLinesObj[fileType] }}&nbsp;
                     span.bloc(v-bind:title="getFileTypeBlankLineInfo(fileType)") ({{ fileTypeBlankLinesObj[fileType] }})
-            .sorting.mui-form--inline
-              .mui-select
-                select(v-model="filesSortType")
-                  option(value="lineOfCode") LoC
-                  option(value="path") Path
-                  option(value="fileName") File Name
-                  option(value="fileType") File Format
-                label sort by
-              label
-                input(type="checkbox", v-model="toReverseSortFiles").mui-checkbox
-                span reverse
         .files(v-if="isLoaded")
           .empty(v-if="files.length === 0") nothing to see here :(
           template(v-for="file in selectedFiles")
